@@ -1,0 +1,133 @@
+{
+	"annotations": {
+		"list": [
+			{
+				"builtIn": 1,
+				"datasource": {
+					"type": "grafana",
+					"uid": "-- Grafana --"
+				},
+				"enable": true,
+				"hide": true,
+				"iconColor": "rgba(0, 211, 255, 1)",
+				"name": "Annotations & Alerts",
+				"type": "dashboard"
+			}
+		]
+	},
+	"editable": true,
+	"fiscalYearStartMonth": 0,
+	"graphTooltip": 0,
+	"id": 1,
+	"links": [],
+	"liveNow": false,
+	"panels": [
+		{
+			"datasource": {
+				"type": "prometheus"
+			},
+			"fieldConfig": {
+				"defaults": {
+					"color": {
+						"mode": "thresholds"
+					},
+					"custom": {
+						"fillOpacity": 70,
+						"hideFrom": {
+							"legend": false,
+							"tooltip": false,
+							"viz": false
+						},
+						"lineWidth": 1
+					},
+					"displayName": "${__field.name}@${__field.labels.instance}",
+					"mappings": [
+						{
+							"options": {
+								"0": {
+									"color": "dark-red",
+									"index": 1,
+									"text": "down"
+								},
+								"1": {
+									"color": "dark-green",
+									"index": 0,
+									"text": "up"
+								}
+							},
+							"type": "value"
+						}
+					],
+					"thresholds": {
+						"mode": "absolute",
+						"steps": [
+							{
+								"color": "green",
+								"value": null
+							}
+						]
+					}
+				},
+				"overrides": []
+			},
+			"gridPos": {
+				"h": 5,
+				"w": 7,
+				"x": 0,
+				"y": 0
+			},
+			"id": 1,
+			"interval": "2s",
+			"maxDataPoints": 100,
+			"options": {
+				"colWidth": 0.9,
+				"legend": {
+					"displayMode": "list",
+					"placement": "bottom",
+					"showLegend": true
+				},
+				"rowHeight": 0.9,
+				"showValue": "auto",
+				"tooltip": {
+					"mode": "single",
+					"sort": "none"
+				}
+			},
+			"targets": [
+				{
+					"datasource": {
+						"type": "prometheus"
+					},
+					"disableTextWrap": false,
+					"editorMode": "builder",
+					"expr": "test_app_health",
+					"fullMetaSearch": false,
+					"includeNullMetadata": true,
+					"instant": false,
+					"legendFormat": "__auto",
+					"range": true,
+					"refId": "A",
+					"useBackend": false
+				}
+			],
+			"title": "app health status",
+			"type": "status-history"
+		}
+	],
+	"refresh": "",
+	"schemaVersion": 38,
+	"tags": [],
+	"templating": {
+		"list": []
+	},
+	"time": {
+		"from": "now-1h",
+		"to": "now"
+	},
+	"timepicker": {},
+	"timezone": "",
+	"title": "test",
+	"uid": "f2eebb3e-4caf-48a2-aa48-d2aa5a1df7d5",
+	"version": 1,
+	"weekStart": ""
+}

@@ -1,0 +1,24 @@
+services:
+    app:
+        image: local/prometheustio
+        build: ./goapp
+        ports:
+            - 9101:9101
+        networks:
+            - prometheus-tio
+    grafana:
+        image: grafana/grafana
+        ports:
+            - 3000:3000
+        networks:
+            - prometheus-tio
+    prometheus:
+        image: prom/prometheus
+        ports:
+            - 9100:9090
+        volumes:
+            - ./prometheus:/etc/prometheus/
+        networks:
+            - prometheus-tio
+networks:
+    prometheus-tio:
